@@ -33,9 +33,9 @@ elif platform.system() == "Linux":
 
 # Function to run the crisp boot utils file (crispBUF)
 def run_crisp_util():
-    crisp_util_path = os.path.join(crisp_BUF, 'crisp_util.py')  # Adjust the utility name and extension
     try:
-        result = subprocess.run(['python', crisp_util_path], check=True, capture_output=True, text=True)
+        # Run the utility located at the crisp_BUF path
+        result = subprocess.run([crisp_BUF], check=True, capture_output=True, text=True)
         print("Output:", result.stdout)
     except subprocess.CalledProcessError as e:
         print(f"Error running crisp util: {e}")

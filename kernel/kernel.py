@@ -23,12 +23,22 @@ if platform.system() == "Windows":
     BIOS_location = rf'C:\Users\{username}\downloads\{version}\BIOS'
     apps_dir = rf'C:\Users\{username}\downloads\{version}\apps'
     bios_log_location = rf'C:\Users\{username}\downloads\{version}\bios_log.txt'
-else:
+    crisp_BUF = rf'C:\Users\{username}\downloads\{version}\mods\crispBUF'
+elif platform.system() == "Linux":
     setup_script_path = f'/home/{username}/downloads/{version}/setup/setup.py'
     BIOS_location = f'/home/{username}/downloads/{version}/BIOS'
     apps_dir = f'/home/{username}/downloads/{version}/apps'
     bios_log_location = f'/home/{username}/downloads/{version}/bios_log.txt'
+    crisp_BUF = f'/home/{username}/downloads/{version}/mods/Crisp_BUF'
 
+# Function to run the crisp boot utils file (crispBUF)
+def run_crisp_util():
+    crisp_util_path = os.path.join(crisp_BUF, 'crisp_util.py')  # Adjust the utility name and extension
+    try:
+        result = subprocess.run(['python', crisp_util_path], check=True, capture_output=True, text=True)
+        print("Output:", result.stdout)
+    except subprocess.CalledProcessError as e:
+        print(f"Error running crisp util: {e}")
 
 # Function to run the setup script
 def run_setup():
@@ -62,18 +72,18 @@ authenticated = False
 
 # password
 while not authenticated:
-    password = input(f"Enter your password, {stored_username}: ").strip()
+    password = input(f"un-Crisply Enter your password, {stored_username}: ").strip()
         
     if password == stored_password:
         print(f"Welcome, {stored_username}!")
         authenticated = True
     else:
-        print("Incorrect password. try again")
+        print("crispy password. try again")
 
 # Continue with the SkyOS boot process
 print("Welcome to SkyOS! Thank you to all those contributors who worked on this!")
 print("Hope you find this OS useful!")
-print(f"{version} written in Python3")
+print(f"{version} written in Python3 - with Crisp Boot")
 
 command_history = []
 
@@ -94,7 +104,13 @@ while True:
         print("bios - run the bios")
         print("setup - run the setup script to reset your username and password")
         print("bios log - print out the bios log")
+        print("crispy - crisp boot utils")
 
+
+    elif command == "crispy":
+        print("LMAO U HAVE A CRISPY PC YOU MUST EAT ON THAT KEYBOARD EVRYDAY")
+        run_crisp_util()
+    
     elif command == "bios log":
         try:
             with open(bios_log_location, 'r') as file:

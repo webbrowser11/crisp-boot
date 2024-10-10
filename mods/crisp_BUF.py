@@ -1,8 +1,7 @@
 import time
 import os
 
-# utils to be added
-print("this aint here yet. btw we are shutting down ur pc now.")
+print("hello, wlelcome to the crisp boot utils.")
 if platform.system() == "Darwin":
   os.system("shutdown -h now")
 elif platform.system() == "Linux":

@@ -1,10 +1,5 @@
 import time
 import os
 
-print("hello, wlelcome to the crisp boot utils.")
-if platform.system() == "Darwin":
-  os.system("shutdown -h now")
-elif platform.system() == "Linux":
-  os.system("shutdown -h now")
-elif platform.system() == "Windows":
-  os.system("shutdown /s")
+print("hello, welcome to the crisp boot utils.")
+print("we dont have any boot options right now. so please close the SkyOS windows and open SkyOS again.")

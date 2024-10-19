@@ -1,2 +1,2 @@
-# crisp-boot
+# Crisp-boot
 Booting mod for SkyOS
